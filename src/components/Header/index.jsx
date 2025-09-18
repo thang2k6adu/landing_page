@@ -9,7 +9,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'products', label: 'Products', href: '#' },
+    { id: 'home', label: 'Home', href: '#' },
     { id: 'features', label: 'Features', href: '#' },
     { id: 'marketplace', label: 'Marketplace', href: '#' },
     { id: 'company', label: 'Company', href: '#' },
