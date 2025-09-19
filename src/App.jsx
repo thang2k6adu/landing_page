@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
 import PageLoader from "~/components/PageLoader";
 
 const OS = lazy(() => import("./app/OS"));
@@ -6,9 +7,11 @@ const OS = lazy(() => import("./app/OS"));
 function App() {
   return (
     <>
-      <Suspense fallback={PageLoader}>
-        <OS />
-      </Suspense>
+      <BrowserRouter>
+        <Suspense fallback={PageLoader}>
+          <OS />
+        </Suspense>
+      </BrowserRouter>
     </>
   );
 }

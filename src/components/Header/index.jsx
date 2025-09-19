@@ -1,19 +1,25 @@
 // components/Header.jsx
-import { useState } from 'react';
-import Logo from '../Logo';
-import MobileMenuButton from '../MobileMenuButton';
-import NavItems from '../NavItems';
-import MobileMenu from '../MobileMenu';
+import { useState } from "react";
+import Logo from "../Logo";
+import MobileMenuButton from "../MobileMenuButton";
+import NavItems from "../NavItems";
+import MobileMenu from "../MobileMenu";
+import LoginButton from "../LoginButton";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#' },
-    { id: 'features', label: 'Features', href: '#' },
-    { id: 'marketplace', label: 'Marketplace', href: '#' },
-    { id: 'company', label: 'Company', href: '#' },
+    { id: "home", label: "Home", href: "/home" },
+    { id: "about", label: "About", href: "/about" },
+    { id: "marketplace", label: "Marketplace", href: "/marketplace" },
+    { id: "company", label: "Company", href: "/company" },
   ];
+
+  const logoConfig = {
+    logo1: "https://ript.vn/wp-content/uploads/2023/08/logo-ptit-removebg-preview.png",
+    logo2: "http://ript.vn/wp-content/uploads/2023/08/RIPT-Logo-2-removebg-preview.png",
+  };
 
   return (
     <header className="bg-gray-900">
@@ -23,12 +29,15 @@ export default function Header() {
       >
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Logo />
+          <Logo
+            logo1={logoConfig.logo1}
+            logo2={logoConfig.logo2}
+          />
         </div>
 
         {/* Mobile menu button */}
         <div className="flex lg:hidden">
-          <MobileMenuButton 
+          <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           />
@@ -39,12 +48,7 @@ export default function Header() {
           <NavItems items={navItems} />
         </div>
 
-        {/* Login button (Desktop) */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+        <LoginButton />
       </nav>
 
       {/* Mobile menu */}

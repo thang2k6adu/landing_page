@@ -1,15 +1,21 @@
 // components/NavItems.jsx
-export default function NavItems({ items, className = '' }) {
+import { NavLink } from "react-router-dom";
+
+export default function NavItems({ items, className = "" }) {
   return (
     <>
       {items.map((item) => (
-        <a
+        <NavLink
           key={item.id}
-          href={item.href}
-          className={`text-sm font-semibold text-white ${className}`}
+          to={item.href}
+          className={({ isActive }) =>
+            `text-sm font-semibold ${
+              isActive ? "text-yellow-400" : "text-white"
+            } ${className}`
+          }
         >
           {item.label}
-        </a>
+        </NavLink>
       ))}
     </>
   );
