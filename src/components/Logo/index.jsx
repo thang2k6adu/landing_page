@@ -1,13 +1,22 @@
-// components/Logo.jsx
-export default function Logo() {
+import { Link } from "react-router-dom";
+
+export default function Logo({ logo1, logo2 }) {
   return (
-    <a href="#" className="-m-1.5 p-1.5">
-      <span className="sr-only">Your Company</span>
-      <img
-        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-        alt="Company Logo"
-        className="h-8 w-auto"
-      />
-    </a>
+    <Link to={'/'} className="flex items-center">
+      {logo1 && (
+        <img
+          src={logo1}
+          alt="Logo 1"
+          className="h-8 w-auto"
+        />
+      )}
+      {logo2 && (
+        <img
+          src={logo2}
+          alt="Logo 2"
+          className="pl-4 h-8 w-auto"
+        />
+      )}
+    </Link>
   );
 }
